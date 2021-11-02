@@ -17,7 +17,7 @@ MapCon::MapCon() {
 	if (!grid) std::cout << "Error to allocate grid on first usage" << std::endl;
 
 	//	Limpando grid
-#pragma omp parallel for collapse(2)
+#pragma omp parallel for
 	for (int i = 0; i < LENGTH; i++) {
 		for (int j = 0; j < LENGTH; j++) {
 			grid[i][j] = MORTO;
@@ -138,7 +138,7 @@ int** MapCon::nextGen(int flag) {
 
 	if (newGrid == NULL) std::cout << "Failed to create new generation grid" << std::endl;
 
-#pragma omp parallel for collapse(2) private(t_ng)
+#pragma omp parallel for private(t_ng)
 	for (int i = 0; i < LENGTH; i++) {
 		// Cada linha
 
@@ -155,7 +155,7 @@ int** MapCon::nextGen(int flag) {
 int MapCon::NSociety() {
 	int society = 0;
 
-#pragma omp parallel for collapse(2) reduction(+:society)
+#pragma omp parallel for reduction(+:society)
 	for (int i = 0; i < LENGTH; i++) {
 		for (int j = 0; j < LENGTH; j++) {
 			society += grid[i][j];
@@ -165,6 +165,8 @@ int MapCon::NSociety() {
 }
 
 void MapCon::setGrid(int** newGrid) {
+	for (int i = 0; i < LENGTH; i++)
+		free(grid[i]);
 	free(grid);
 	grid = newGrid;
 }

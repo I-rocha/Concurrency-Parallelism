@@ -159,6 +159,8 @@ int Map::NSociety() {
 }
 
 void Map::setGrid(int** newGrid) {
+	for(int i = 0; i < LENGTH; i++)
+		free(grid[i]);
 	free(grid);
 	grid = newGrid;
 }
