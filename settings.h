@@ -1,9 +1,9 @@
 #pragma once
 
 // DEFINES	//
-#define N_TRHEADS 1	// qtd de threads
+#define N_TRHEADS 8	// qtd de threads
 #define LENGTH 2048	// lado do mapa
-#define N_GEN 5	// numero de gerações
+#define N_GEN 100	// numero de gerações
 
 #define MORTO 0
 #define VIVO 1
