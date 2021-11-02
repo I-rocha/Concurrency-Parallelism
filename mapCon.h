@@ -24,8 +24,8 @@ public:
 	// Da novo valor à grid
 	void setGrid(int** newGrid);
 
-	Map();
-	~Map();
+	MapCon();
+	~MapCon();
 
 
 private:
