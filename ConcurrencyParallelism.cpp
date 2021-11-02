@@ -14,6 +14,8 @@ int main()
 	Map* obj = new Map();
 	int** newGrid;
 
+	omp_set_num_threads(N_TRHEADS);
+
 	obj->setFirstGrid();
 	std::cout << "Condicao inicial: " << obj->NSociety() << std::endl;
 
