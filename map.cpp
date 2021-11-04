@@ -84,41 +84,41 @@ int Map::getNeighbours(int i, int j) {
 }
 
 int Map::applyRules(int ng, int i, int j, int flag) {
-	int state = 0;
-	state = grid[i][j];
-	if (grid[i][j] == VIVO) {
-		// Se vivo
+		int state = 0;
+		state = grid[i][j];
+		if (grid[i][j] == VIVO) {
+			// Se vivo
 		
-		if (ng < 2 || ng > 3) {
-			// Se menos que 2 vizinhos ou acima de 3
+			if (ng < 2 || ng > 3) {
+				// Se menos que 2 vizinhos ou acima de 3
+				state = MORTO;
+			}
+		}
+		else if (grid[i][j] == MORTO) {
+			// Se morto
+		
+			if (flag == JOGO_DA_VIDA) {
+				// Versão jogo da vida
+
+				if (ng == 3) {
+					// Com 3 vizinhos
+					state = VIVO;
+				}
+			}
+			else if (flag == HIGHLIFE) {
+				// Versão Highlife
+
+				if (ng == 3 || ng == 6) {
+					// Com 3 vizinhos ou 6
+					state = VIVO;
+				}
+			}
+		}
+		else {
+			std::cout << "Some error occured, cell with invalid state" << std::endl << "Cell will be considered DEAD";
 			state = MORTO;
 		}
-	}
-	else if (grid[i][j] == MORTO) {
-		// Se morto
-		
-		if (flag == JOGO_DA_VIDA) {
-			// Versão jogo da vida
-
-			if (ng == 3) {
-				// Com 3 vizinhos
-				state = VIVO;
-			}
-		}
-		else if (flag == HIGHLIFE) {
-			// Versão Highlife
-
-			if (ng == 3 || ng == 6) {
-				// Com 3 vizinhos ou 6
-				state = VIVO;
-			}
-		}
-	}
-	else {
-		std::cout << "Some error occured, cell with invalid state" << std::endl << "Cell will be considered DEAD";
-		state = MORTO;
-	}
-	return state;
+		return state;
 }
 
 int** Map::nextGen(int flag) {

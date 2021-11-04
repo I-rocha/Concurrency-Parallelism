@@ -3,6 +3,7 @@
 //	C++	//
 #include <vector>
 
+
 // Personal	//
 #include "settings.h"
 
