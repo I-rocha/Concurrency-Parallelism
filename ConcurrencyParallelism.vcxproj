@@ -142,9 +142,11 @@
   <ItemGroup>
     <ClCompile Include="ConcurrencyParallelism.cpp" />
     <ClCompile Include="map.cpp" />
+    <ClCompile Include="mapCon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="map.h" />
+    <ClInclude Include="mapCon.h" />
     <ClInclude Include="settings.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

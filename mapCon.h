@@ -3,16 +3,15 @@
 //	C++	//
 #include <vector>
 
-
 // Personal	//
 #include "settings.h"
 
 
-class Map {
+class MapCon {
 public:
 	// Inicia sociedade com estado padrao
 	void setFirstGrid();
-	
+
 	// Calcula proxima geração
 	int** nextGen(int flag = JOGO_DA_VIDA);
 
@@ -25,9 +24,9 @@ public:
 	// Da novo valor à grid
 	void setGrid(int** newGrid);
 
-	Map();
-	~Map();
-	
+	MapCon();
+	~MapCon();
+
 
 private:
 
@@ -35,11 +34,11 @@ private:
 
 	// Obtem quantidade de vizinhos
 	int getNeighbours(int i, int j);
-	
+
 	// Aplica as regras de sobrevivência
 	int applyRules(int ng, int i, int j, int flag = JOGO_DA_VIDA);
 
 	// Retifica a posição de acordo com o tamanho do campo
-	int rp(int i);	
+	int rp(int i);
 
 };
