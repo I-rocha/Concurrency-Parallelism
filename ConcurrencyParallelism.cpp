@@ -28,7 +28,7 @@ int main()
 	std::cout << "Condicao inicial: " << obj->NSociety() << std::endl;
 	
 	std::chrono::high_resolution_clock::time_point startTimeGen = std::chrono::high_resolution_clock::now();
-	for (i = 1; i <= N_GEN; i++) {
+	for (i = 1; i < N_GEN; i++) {
 		
 
 		newGrid = obj->nextGen(JOGO_DA_VIDA);
@@ -43,7 +43,7 @@ int main()
 	std::chrono::high_resolution_clock::time_point endTimeGen = std::chrono::high_resolution_clock::now();
 	
 
-	std::cout << "Geracao " << i - 1 << ": " << obj->NSociety() << std::endl;
+	std::cout << "Geracao " << i << ": " << obj->NSociety() << std::endl;
 
 	std::chrono::high_resolution_clock::time_point endTime = std::chrono::high_resolution_clock::now();
 	
